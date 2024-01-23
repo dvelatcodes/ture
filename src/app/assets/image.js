@@ -19,41 +19,76 @@ import Rectangle30 from "Rectangle 30.png";
 import Rectangle31 from "Rectangle 31.png";
 import Rectangle from "Rectangle.png";
 import twitter from "twitter.svg";
-import jack from "jack.png";
-import mattewJeo from "mattewJeo.png";
+import jake from "jack.png";
+import matthewJeo from "mattewJeo.png";
 import RachealKate from "Racheal-Kate.png";
 import galleryChair6 from "gallery-chair6.png";
 import galleryImage1 from "gallery-image1.png";
 import johnChu from "john-chu.png";
+import inputImage from "./inputImage";
+
+export const teamImagesAbout = [
+  {
+    name: "Matthew Jeo",
+    role: "Brand Manager",
+    img: matthewJeo,
+  },
+  {
+    name: "Racheal Kate",
+    role: "Brand Strategist",
+    img: RachealKate,
+  },
+  {
+    name: "John Chu",
+    role: "Designer",
+    img: johnChu,
+  },
+];
+
+export const heroImageHome = [
+  {
+    img: heroImage1,
+  },
+  {
+    img: heroImage2,
+  },
+  {
+    img: heroImage3,
+  },
+];
+
+export const galleryImageHome = [
+  { img: Rectangle3 },
+  { img: Rectangle8 },
+  { img: Rectangle5 },
+  { img: Rectangle6 },
+  { img: Rectangle4 },
+  { img: Rectangle7 },
+];
+
+export const galleryImages = [
+  { img: galleryImage1 },
+  { img: Rectangle25 },
+  { img: Rectangle26 },
+  { img: Rectangle27 },
+  { img: galleryChair6 },
+  { img: Rectangle28 },
+];
+
+export const socialImages = [
+  { img: facebook, link: "https://web.facebook.com/love.olubummo/" },
+  { img: twitter, link: "https://twitter.com/dvelatcodes" },
+  { img: instagram, link: "https://www.linkedin.com/in/love-olubummo-dvelat" },
+];
 
 const images = {
-  facebook,
   heroBackground,
-  heroImage1,
-  heroImage2,
-  heroImage3,
-  instagram,
   process,
   Rectangle,
-  Rectangle3,
-  Rectangle4,
-  Rectangle5,
-  Rectangle6,
-  Rectangle7,
-  Rectangle8,
-  Rectangle25,
-  Rectangle26,
-  Rectangle27,
-  Rectangle28,
   Rectangle30,
   Rectangle31,
-  twitter,
-  jack,
-  mattewJeo,
-  RachealKate,
-  galleryChair6,
-  galleryImage1,
-  johnChu,
+  inputImage,
+  jake,
 };
 
 export default images;
