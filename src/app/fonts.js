@@ -1,4 +1,10 @@
-import { Inter, Kaushan_Script, Montserrat, Poppins } from "next/font/google";
+import {
+  Inter,
+  Kaushan_Script,
+  Montserrat,
+  Poppins,
+  Noto_Serif,
+} from "next/font/google";
 
 export const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -20,4 +26,12 @@ export const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+export const noto_serif = Noto_Serif({
+  subsets: ["latin"],
+  variable: "--Noto_Serif",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });

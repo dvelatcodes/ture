@@ -1,6 +1,12 @@
-import { kaushan_script, inter, montserrat, poppins } from "./fonts";
+import {
+  kaushan_script,
+  inter,
+  montserrat,
+  poppins,
+  noto_serif,
+} from "./fonts";
 import "./globals.scss";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,10 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${kaushan_script.variable} ${montserrat.variable} ${poppins.variable}`}
+        className={`${inter.variable} ${kaushan_script.variable} ${montserrat.variable} ${poppins.variable} ${noto_serif.variable}`}
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
