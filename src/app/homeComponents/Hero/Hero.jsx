@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.scss';
 import {Button} from '../../generalComponents';
-import {galleryImageHome, heroImageHome} from '../../assets'
+import {heroImageHome} from '../../assets'
 import Image from 'next/image';
 const Hero = () => {
   return (
