@@ -4,3 +4,26 @@
   padding: 0;
   scroll-behavior: smooth;
 }
+
+.primary-button {
+  width: 230px;
+  height: 65px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #fff5e8;
+  color: #000;
+  font-family: var(--Noto_Serif);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 425px) {
+    font-size: 18px;
+    width: 170px;
+    height: 55px;
+  }
+}

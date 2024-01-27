@@ -1,7 +1,13 @@
 import React from "react";
+import { Hero, Gallery, Inquiry, Main } from "./homeComponents";
 
 const page = () => {
-  return <div>Home page</div>;
+  return <>
+    <Hero/>
+    <Main/>
+    <Gallery/>
+    <Inquiry/>
+  </>;
 };
 
 export default page;

@@ -6,7 +6,7 @@ import {
   noto_serif,
 } from "./fonts";
 import "./globals.scss";
-import { Footer, Navbar } from "./components";
+import { Footer, Navbar } from "./generalComponents";
 
 export const metadata = {
   title: "Create Next App",

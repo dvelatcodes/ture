@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles.scss'
-const Button = () => {
+const Main = () => {
   return (
-    <div>Button</div>
+    <div>Main</div>
   )
 }
 
-export default Button
+export default Main
