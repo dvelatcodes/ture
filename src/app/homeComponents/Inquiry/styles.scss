@@ -1,0 +1,79 @@
+.inquiry {
+  max-width: 1474px;
+  width: 100vw;
+  margin: 0 auto 80px auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+
+  .inquiry-left-cover {
+    background: #473723;
+    width: 1047px;
+    padding: 102.54px 0 127.89px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 1379px) {
+      width: 70vw;
+    }
+    .inquiry-left {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      h4 {
+        color: #fff5e8;
+        font-family: var(--Noto_Serif);
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 23.67px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        label {
+          color: #fff5e8;
+          font-family: var(--Noto_Serif);
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 23.44px;
+          display: block;
+        }
+        input {
+          width: 583px;
+          height: 50.761px;
+          margin-bottom: 19.8px;
+          background: #fff5e8;
+          display: block;
+        }
+        textarea {
+          width: 583px;
+          height: 283.244px;
+          background: #fff5e8;
+          margin-bottom: 41.62px;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .inquiry-right {
+    position: relative;
+    z-index: 100;
+    img {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: -5rem;
+    }
+  }
+}
