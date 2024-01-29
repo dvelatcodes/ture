@@ -1,6 +1,7 @@
 .main-home {
-  width: 1474px;
-  height: 483.561px;
+  max-width: 1474px;
+  width: 100vw;
+  height: auto;
   flex-shrink: 0;
   background: #473723;
   margin: 80px auto 0 auto;
@@ -8,7 +9,12 @@
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding-top: 110px;
+  padding: 110px 0 74.9px 0;
+
+  @media screen and (max-width: 673px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   .first {
     h4 {
@@ -19,8 +25,15 @@
       font-size: 34px;
       font-style: normal;
       font-weight: 700;
+      line-height: normal;
       margin-bottom: 16px;
-      line-height: 1.5rem;
+      @media screen and (max-width: 673px) {
+        text-align: center;
+      }
+      @media screen and (max-width: 425px) {
+        font-size: 29px;
+        width: fit-content;
+      }
     }
     p {
       width: 331px;
@@ -32,6 +45,13 @@
       font-weight: 400;
       line-height: 35px;
       margin-bottom: 16px;
+      @media screen and (max-width: 673px) {
+        text-align: center;
+      }
+      @media screen and (max-width: 425px) {
+        font-size: 18px;
+        width: fit-content;
+      }
     }
   }
 }
@@ -43,6 +63,9 @@
   display: flex;
   gap: 37px;
   align-items: flex-start;
+  @media screen and (max-width: 425px) {
+    gap: 20px;
+  }
   .process-cover {
     width: 40px;
     height: 39.881px;
@@ -51,11 +74,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 425px) {
+      width: 35px;
+      height: 36px;
+    }
+
+    img {
+      @media screen and (max-width: 425px) {
+        width: 35px;
+        height: 36px;
+      }
+    }
   }
 
   div {
     h4 {
-      width: 341px;
+      // width: 341px;
       flex-shrink: 0;
       color: #fff5e8;
       font-family: var(--Noto_Serif);
@@ -63,6 +97,9 @@
       font-weight: 700;
       line-height: 1.5rem;
       margin-bottom: 13.96px;
+      @media screen and (max-width: 425px) {
+        font-size: 26px;
+      }
     }
     small {
       flex-shrink: 0;
@@ -72,6 +109,9 @@
       font-style: normal;
       font-weight: 500;
       line-height: 25px;
+      @media screen and (max-width: 425px) {
+        font-size: 18px;
+      }
     }
   }
 }
@@ -79,4 +119,22 @@
 .with-us,
 .we-do {
   margin-top: 32.9px;
+}
+
+.third {
+  @media screen and (max-width: 972px) {
+    margin-top: 7rem;
+  }
+}
+
+.second {
+  @media screen and (max-width: 673px) {
+    margin-top: 7rem;
+  }
+}
+
+.main-home-btn {
+  @media screen and (max-width: 673px) {
+    margin: auto;
+  }
 }

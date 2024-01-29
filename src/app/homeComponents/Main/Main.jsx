@@ -13,7 +13,7 @@ const Main = () => {
         <p>
           All of our luxury furniture is handcrafted using kiln-dried hardwood timber.
         </p>
-        <Button text='Learn More' className='primary-button' type='button'/>
+        <Button text='Learn More' className='primary-button main-home-btn' type='button'/>
       </div>
       <div className='second'>
           <div className='we-are'>
