@@ -16,6 +16,10 @@
     @media screen and (max-width: 1379px) {
       width: 70vw;
     }
+    @media screen and (max-width: 375px) {
+      justify-content: flex-start;
+      padding: 102.54px 0 127.89px 1rem;
+    }
     .inquiry-left {
       width: auto;
       display: flex;
@@ -30,6 +34,15 @@
         font-weight: 600;
         line-height: normal;
         margin-bottom: 23.67px;
+        @media screen and (max-width: 544px) {
+          font-size: 27px;
+        }
+        @media screen and (max-width: 425px) {
+          font-size: 25px;
+        }
+        @media screen and (max-width: 375px) {
+          font-size: 21px;
+        }
       }
       form {
         display: flex;
@@ -45,6 +58,12 @@
           line-height: normal;
           margin-bottom: 23.44px;
           display: block;
+          @media screen and (max-width: 544px) {
+            font-size: 20px;
+          }
+          @media screen and (max-width: 425px) {
+            font-size: 18px;
+          }
         }
         input {
           width: 583px;
@@ -52,6 +71,12 @@
           margin-bottom: 19.8px;
           background: #fff5e8;
           display: block;
+          @media screen and (max-width: 1104px) {
+            width: 50vw;
+          }
+          @media screen and (max-width: 544px) {
+            border-radius: 20px;
+          }
         }
         textarea {
           width: 583px;
@@ -59,6 +84,15 @@
           background: #fff5e8;
           margin-bottom: 41.62px;
           display: block;
+          @media screen and (max-width: 1104px) {
+            width: 50vw;
+          }
+          @media screen and (max-width: 848px) {
+            height: 220px;
+          }
+          @media screen and (max-width: 544px) {
+            border-radius: 20px;
+          }
         }
       }
     }
@@ -74,6 +108,24 @@
       bottom: 0;
       right: 0;
       left: -5rem;
+      @media screen and (max-width: 1104px) {
+        width: 35vw;
+        height: 700px;
+      }
+      @media screen and (max-width: 848px) {
+        height: 500px;
+        left: -3rem;
+      }
+      @media screen and (max-width: 544px) {
+        width: 40vw;
+        border-radius: 20px;
+      }
+      @media screen and (max-width: 375px) {
+        width: 43vw;
+      }
+      @media screen and (max-width: 375px) {
+        left: -2rem;
+      }
     }
   }
 }
