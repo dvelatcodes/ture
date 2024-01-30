@@ -32,7 +32,8 @@ body {
 }
 
 .brown {
-  width: 1474px;
+  max-width: 1474px;
+  width: 100vw;
   height: 72px;
   flex-shrink: 0;
   background: #fdefdd;
