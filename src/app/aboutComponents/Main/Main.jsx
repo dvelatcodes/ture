@@ -37,6 +37,7 @@ const Main = () => {
             </p>
           </div>
       </div>
+      <div className="brown"></div>
     </div>
   )
 }

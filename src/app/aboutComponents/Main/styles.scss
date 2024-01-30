@@ -95,7 +95,7 @@
     width: auto;
     display: flex;
     align-items: center;
-    margin-top: 32px;
+    margin: 32px 0 32px 0;
     @media screen and (max-width: 580px) {
       flex-direction: column-reverse;
       justify-content: center;
