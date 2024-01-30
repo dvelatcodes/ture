@@ -1,8 +1,12 @@
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import {Hero, Main, Team} from '../aboutComponents';
 const page = () => {
   return (
-    <div>page</div>
+    <>
+      <Hero/>
+      <Main/>
+      <Team/>
+    </>
   )
 }
 
