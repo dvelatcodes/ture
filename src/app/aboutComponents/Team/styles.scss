@@ -63,6 +63,9 @@
         width: 454px;
         height: 440px;
         flex-shrink: 0;
+        &:hover {
+          mix-blend-mode: multiply;
+        }
         @media screen and (max-width: 730px) {
           width: 434px;
           height: 420px;
