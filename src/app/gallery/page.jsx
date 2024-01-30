@@ -1,9 +1,12 @@
 import React from 'react'
-import './styles.scss'
-
+import {Hero, Main, DecSpecial} from '../galleryComponents';
 const page = () => {
   return (
-    <div>page</div>
+    <>
+    <Hero/>
+    <Main/>
+    <DecSpecial/>
+    </>
   )
 }
 
