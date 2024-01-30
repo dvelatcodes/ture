@@ -6,7 +6,7 @@ import {socialImages} from '../../assets';
 import images from '../../assets';
 const Footer = () => {
   return (
-    <footer>
+    <footer id='footer'>
         <div className="company">
             <h1>
                 OUR COMPANY

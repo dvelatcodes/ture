@@ -8,7 +8,8 @@ const Navbar = () => {
     const [ham, setHam] = useState(true);
     const address = usePathname();
     useEffect(()=>{
-        setActiveLink(address)
+        setActiveLink(address);
+        setHam(true);
     },[address])
 
   return (
@@ -37,7 +38,7 @@ const Navbar = () => {
             }}>
                 Gallery
             </Link>
-            <Link href='#footer' className={`${activeLink === '#footer'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
+            <Link href='/#footer' className={`${activeLink === '#footer'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
             }}>
                 Contact Us
             </Link>
