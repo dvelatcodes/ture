@@ -1,10 +1,15 @@
 'use client'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react';
+import { usePathname } from 'next/navigation';
 import './styles.scss'
 import Link from 'next/link'
 const Navbar = () => {
     const [activeLink, setActiveLink] = useState('/');
-    const [ham, setHam] = useState(true)
+    const [ham, setHam] = useState(true);
+    const address = usePathname();
+    useEffect(()=>{
+        setActiveLink(address)
+    },[address])
 
   return (
     <nav className='nav-container'>
@@ -20,7 +25,6 @@ const Navbar = () => {
         </div>
         <div className={`${ham? "nav-section" : "ham-nav"}`}>
             <Link href='/' className={`${activeLink === '/'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
-             console.log(activeLink)
              }}>
                 Home
             </Link>
@@ -30,12 +34,10 @@ const Navbar = () => {
                 About Us
             </Link>
             <Link href='/gallery' className={`${activeLink === '/gallery'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
-            console.log(activeLink)
             }}>
                 Gallery
             </Link>
             <Link href='#footer' className={`${activeLink === '#footer'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
-            console.log(activeLink)
             }}>
                 Contact Us
             </Link>

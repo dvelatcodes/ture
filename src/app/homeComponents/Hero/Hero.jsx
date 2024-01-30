@@ -19,7 +19,7 @@ const Hero = () => {
           <Button text='Learn More' className='primary-button home-but' type='button' />
       </div>
       <div className="home-hero-right">
-          {heroImageHome.map((picture, index)=>(<Image key={index} src={picture.img} alt='hero image' width={234} height={378} placeholder='blur' blurDataURL='/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRectangle+3.e3cf59ad.png&w=8&q=70'/>))}
+          {heroImageHome.map((picture, index)=>(<Image key={index} src={picture.img} alt='hero image' width={'auto'} height={'auto'} placeholder='blur' blurDataURL='/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FRectangle+3.e3cf59ad.png&w=8&q=70'/>))}
       </div>
     </div>
   )

@@ -7,7 +7,9 @@
   align-items: center;
   padding: 27px 100px 27px 97px;
   background: #fff5e8;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
 
   @media screen and (max-width: 1024px) {
     padding: 27px 20px 27px 10px;
@@ -211,6 +213,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1002;
+
     display: none;
     @media screen and (max-width: 729px) {
       display: flex;

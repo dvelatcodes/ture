@@ -112,6 +112,9 @@
       gap: 8px;
     }
     img {
+      width: 234px;
+      height: 378px;
+      flex-shrink: 0;
       &:hover {
         mix-blend-mode: hard-light;
       }

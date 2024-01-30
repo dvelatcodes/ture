@@ -16,9 +16,9 @@ const Main = () => {
         <Button text='Learn More' className='primary-button main-home-btn' type='button'/>
       </div>
       <div className='second'>
-          <div className='we-are'>
+          <div className='we-are' id='we_are'>
               <div className="process-cover">
-                <Image src={images.process} alt='process image' width={50} height={50}/>
+                <Image src={images.process} alt='process image' width={'auto'} height={'auto'}/>
               </div>
               <div>
                 <h4>
@@ -29,9 +29,9 @@ const Main = () => {
                 </small>
               </div>
           </div>
-          <div className='we-do'>
+          <div className='we-do' id='we_do'>
               <div className="process-cover">
-                <Image src={images.process} alt='process image' width={50} height={50}/>
+                <Image src={images.process} alt='process image' width={'auto'} height={'auto'}/>
               </div>
               <div>
                 <h4>
@@ -44,9 +44,9 @@ const Main = () => {
           </div>
       </div>
       <div className='third'>
-          <div className='why-us'>
+          <div className='why-us' id='why_us'>
             <div className="process-cover">
-                <Image src={images.process} alt='process image' width={50} height={50}/>
+                <Image src={images.process} alt='process image' width={'auto'} height={'auto'}/>
             </div>
             <div>
                 <h4>
@@ -57,9 +57,9 @@ const Main = () => {
                 </small>
             </div>
           </div>
-          <div className='with-us'>
+          <div className='with-us' id='with_us'>
               <div className="process-cover">
-                <Image src={images.process} alt='process image' width={50} height={50}/>
+                <Image src={images.process} alt='process image' width={'auto'} height={'auto'}/>
               </div>
               <div>
                 <h4>

@@ -30,7 +30,7 @@ const Inquiry = () => {
       </div>
       
       <div className="inquiry-right">
-        <Image src={images.inputImage} alt='image input' width={413} height={748.212} placeholder='blur' blurDataURL='/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Finput-image.4c2db098.png&w=4&q=70'/>
+        <Image src={images.inputImage} alt='image input' width={'auto'} height={'auto'} placeholder='blur' blurDataURL='/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Finput-image.4c2db098.png&w=4&q=70'/>
       </div>
     </div>
   )

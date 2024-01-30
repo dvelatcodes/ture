@@ -63,7 +63,7 @@ const Footer = () => {
             <div className="socials">
                 {
                     socialImages.map((picture,index)=>(<Link href={picture.link} key={index}>
-                    <Image src={picture.picture} alt='social link' height={30} width={40}/>
+                    <Image src={picture.picture} alt='social link' height={'auto'} width={'auto'}/>
                     </Link>))
                 }
             </div>
