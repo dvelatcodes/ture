@@ -1,0 +1,25 @@
+.ProfileAndCart{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem 0.7rem;
+    background-color: #fff5e8;
+    position: fixed;
+    right: 2rem;
+    top: 7.2rem;
+    z-index: 2000;
+    border: 2px solid black;
+    border-radius: 2rem;
+
+    a {
+        text-decoration: none;
+        color: #473723;
+        width: fit-content;
+
+        .ProfileAndCart-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+    }
+}

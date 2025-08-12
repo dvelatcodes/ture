@@ -1,5 +1,5 @@
 import React from 'react'
-import {Hero, Main, DecSpecial} from '../galleryComponents';
+import {Hero, Main, DecSpecial} from '../components/galleryComponents';
 const page = () => {
   return (
     <>

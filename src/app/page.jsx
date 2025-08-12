@@ -1,5 +1,5 @@
 import React from "react";
-import { Hero, Gallery, Inquiry, Main } from "./homeComponents";
+import { Hero, Gallery, Inquiry, Main } from "./components/homeComponents";
 
 const page = () => {
   return <>

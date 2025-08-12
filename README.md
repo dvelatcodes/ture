@@ -12,6 +12,12 @@ This is a real estate application on B furniture
 
 - this site is deployed at https://real-estate-global.vercel.app/
 
+
+
+## Functionalities
+
+- Sanity was used to manage the products
+
 ## Getting Started
 
 First, run the development server:

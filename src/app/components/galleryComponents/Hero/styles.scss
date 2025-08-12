@@ -1,0 +1,85 @@
+.gallery-hero {
+  max-width: 1474px;
+  height: 665px;
+  width: 100vw;
+  margin: auto;
+  background-image: url("../../../assets/Rectangle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &::before {
+    content: "";
+    width: 1052.136px;
+    height: 664.262px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(253, 239, 221, 0.52);
+    @media screen and (max-width: 1137px) {
+      width: 90vw;
+    }
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
+  }
+  &::after {
+    content: "";
+    width: 786.597px;
+    height: 664.262px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(71, 55, 35, 0.28);
+    @media screen and (max-width: 1137px) {
+      width: 69vw;
+    }
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
+  }
+
+  .gallery-hero-text {
+    color: #fff;
+    font-family: var(--Noto_Serif);
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 462px;
+    height: 516.648px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(71, 55, 35, 0.31);
+    z-index: 50;
+    @media screen and (max-width: 1137px) {
+      width: 40.5vw;
+    }
+    @media screen and (max-width: 768px) {
+      height: 350px;
+      width: 50vw;
+      font-size: 55px;
+    }
+    @media screen and (max-width: 559px) {
+      height: 300px;
+      width: 55vw;
+      font-size: 45px;
+    }
+    @media screen and (max-width: 559px) {
+      height: 270px;
+      width: 70vw;
+    }
+  }
+}

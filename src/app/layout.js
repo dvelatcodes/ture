@@ -6,7 +6,7 @@ import {
   noto_serif,
 } from "./fonts";
 import "./globals.scss";
-import { Footer, Navbar } from "./generalComponents";
+import { Footer, Navbar, ProfileAndCart } from "./components/generalComponents";
 
 export const metadata = {
   title: "B Furniture App",
@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${kaushan_script.variable} ${montserrat.variable} ${poppins.variable} ${noto_serif.variable}`}
       >
         <Navbar />
+        <ProfileAndCart/>
         {children}
         <Footer />
       </body>

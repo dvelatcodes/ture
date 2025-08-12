@@ -1,0 +1,40 @@
+.card-link{
+    text-decoration: none;
+    color: #473723;
+}
+
+.card-cover {
+  background-color: white;
+  padding-top: 2.5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  width: 220px;
+  height: 320px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  img {
+    object-fit: cover;
+    margin: auto;
+    height: 128px;
+  }
+
+  div {
+    text-align: center;
+    padding: 2.5rem 0 2.5rem 0;
+
+    .card-a {
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    .card-b {
+      color: rgb(107, 114, 128);
+      font-weight: bold;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+}

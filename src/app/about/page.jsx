@@ -1,5 +1,5 @@
 import React from 'react';
-import {Hero, Main, Team} from '../aboutComponents';
+import {Hero, Main, Team} from '../components/aboutComponents';
 const page = () => {
   return (
     <>
