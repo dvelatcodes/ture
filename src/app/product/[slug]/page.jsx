@@ -1,13 +1,10 @@
-"use client"
-
-import { useParams } from 'next/navigation'
 import ProductDetails from '../../components/ProductDetails/ProductDetails'
 import React from 'react';
 import { groq } from 'next-sanity';
 import { client } from '@/sanity/lib/client';
 
-const page = async () => {
-    const { slug } = useParams();
+const page = async ({ params }) => {
+    const { slug } = await params;
     const products = await client.fetch(groq`*[_type=="product"]`);
     const product = products.find((product)=>product.slug.current == slug);
 
@@ -17,7 +14,7 @@ const page = async () => {
 
   return (
     <>
-        <ProductDetails product={product} />
+       {!product? <div>Product not found</div> : <ProductDetails product={product} /> }
     </>
 
   )
