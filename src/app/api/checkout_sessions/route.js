@@ -100,4 +100,5 @@ export const POST = async (request) => {
 
 
 // stripe fetch products
+// https://docs.stripe.com/checkout/quickstart
 // https://dashboard.stripe.com/test/payments
