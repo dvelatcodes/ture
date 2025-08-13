@@ -5,6 +5,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { CartContext } from "../../../context/CartContext";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import './styles.scss'
 
 const Cart = () => {
   const {
@@ -61,11 +62,11 @@ const Cart = () => {
                         className='object-cover'
                       />
                       <div className='item-desc'>
-                        <div className='flex top'>
+                        <div className='product-top top'>
                           <h5>{product.name}</h5>
                           <h4>{product.price}</h4>
                         </div>
-                        <div className='flex bottom'>
+                        <div className='product-bottom bottom'>
                           <div className='quantity-desc'>
                             <span className='minus'  onClick={()=> toggleCartItemQty(product._id,'minus')}>
                               <AiOutlineMinus />

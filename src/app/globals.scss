@@ -168,6 +168,13 @@ body {
   color: #f02d34;
 }
 
+.product-container{
+  margin-top: 15px;
+  overflow: auto;
+  padding: 10px 20px 10px 20px;
+  max-height: 70vh;
+}
+
 .empty-cart {
   margin: 40px;
   text-align: center;
@@ -176,6 +183,23 @@ body {
 .empty-cart h3 {
   font-weight: 600;
   font-size: 20px;
+}
+
+ .btn:hover{
+   transform: scale(1.1,1.1);
+ }
+
+ .product{ 
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+}
+
+ .product .cart-product-image{
+  width: 180px;
+  height: 150px;
+  border-radius: 15px;
+  background-color: #ebebeb;
 }
 
 .item-desc .flex {
