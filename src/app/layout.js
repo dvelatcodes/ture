@@ -8,6 +8,7 @@ import {
 import "./globals.scss";
 import { Footer, Navbar, ProfileAndCart } from "./components/generalComponents";
 import Cart from "./components/Cart/Cart";
+import { AppContext } from "../context/AppContext";
 import { CartProvider } from '../context/CartContext';
 
 export const metadata = {
