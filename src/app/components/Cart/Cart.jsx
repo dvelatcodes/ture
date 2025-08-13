@@ -54,7 +54,8 @@ const Cart = () => {
               {cartItems.map((product)=>(
                     <div className='product' key={product._id}>
                       <Image
-                        loader={()=>urlFor(product.images[0]).url()}
+                        // loader={()=>urlFor(product.images[0]).url()}
+                        loader={({ width }) => urlFor(product.images[0]).width(width).url()}
                         src={urlFor(product.images[0]).url()}
                         alt={product.images[0]}
                         width={200}

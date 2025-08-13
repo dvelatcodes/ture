@@ -18,9 +18,10 @@ const ProductDetails = ({product}) => {
     	    {/* Left */}
             <div>
                 {/* TOP */}
-                <div className='h-[450px] flex items-center mb-[25px]'>
+                <div className='first-img-cover'>
                     <Image
-                        loader={()=>urlFor(product.images[index]).url()}
+                        // loader={()=>urlFor(product.images[index]).url()}
+                        loader={({ width }) => urlFor(product.images[index]).width(width).url()}
                         src={urlFor(product.images[index]).url()}
                         alt={product.images[index]}
                         width={350}
@@ -33,13 +34,17 @@ const ProductDetails = ({product}) => {
                 <div className='small-images-container'>
                     {product.images?.map((item,i)=>(
                         <Image
-                            loader={()=>urlFor(product.images[i]).url()}
+                            // loader={()=>urlFor(product.images[i]).url()}
+                            // loader={({ width }) => urlFor(product.images[i]).width(width).url()}
+                            loader={({ width }) => urlFor(item).width(width).url()}
                             src={urlFor(product.images[i]).url()}
                             alt={product.images[0]}
                             width={220}
                             height={100}
-                            className='object-cover h-32 mx-auto border rounded-xl hover:cursor-pointer'
+                            className='img-displays'
                             onClick={()=>setIndex(i)}
+
+                            key={i}
                         />
                     ))}
 
@@ -48,15 +53,15 @@ const ProductDetails = ({product}) => {
 
 
     	    {/* Right */}
-            <div className='flex flex-col gap-8 md:pt-32 pt-0'>
-                <div className='flex flex-col gap-4'>
-                    <div className='text-3xl font-bold'>{product.name}</div>
-                    <div className='text-xl font-medium'>{product.price}</div>
+            <div className='outer'>
+                <div className='inner1'>
+                    <div className='inner1Div1'>{product.name}</div>
+                    <div className='inner1Div2'>{product.price}</div>
                 </div>
 
-                <div className='flex gap-2 items-center'>
+                <div className='inner2'>
                         <h3>Quantity</h3>
-                        <p className='quantity-desc flex items-center border-black'>
+                        <p className='quantity-desc inner2-p'>
                             <span className='minus'
                                 onClick={decQty}
                             >
