@@ -16,10 +16,31 @@
         text-decoration: none;
         color: #473723;
         width: fit-content;
+    }
+    .ProfileAndCart-icon {
+            width: 1.7rem;
+            height: 1.7rem;
+    }
 
-        .ProfileAndCart-icon {
-            width: 1.3rem;
-            height: 1.3rem;
+    button{
+        border: none;
+        display: block;
+        position: relative;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            right: 0;
+            top: -0.5rem;
+            margin: auto;
+            color: white;
+            padding: 0.2rem 0.2rem;
+            border-radius: 0.3rem;
+            background-color: red;
+            width: fit-content;
+            height: fit-content;
+            font-size: 0.7rem;
         }
     }
+
 }

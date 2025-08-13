@@ -7,6 +7,8 @@ import {
 } from "./fonts";
 import "./globals.scss";
 import { Footer, Navbar, ProfileAndCart } from "./components/generalComponents";
+import Cart from "./components/Cart/Cart";
+import { CartProvider } from '../context/CartContext';
 
 export const metadata = {
   title: "B Furniture App",
@@ -19,10 +21,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${kaushan_script.variable} ${montserrat.variable} ${poppins.variable} ${noto_serif.variable}`}
       >
-        <Navbar />
-        <ProfileAndCart/>
-        {children}
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <Cart />
+          <ProfileAndCart />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

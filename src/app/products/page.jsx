@@ -12,12 +12,12 @@ const page = async () => {
   // console.log(products)
 
   return (
-    <div className="product-container">
-      <div className="product-text-cover">
+    <div className="gen-product-container">
+      <div className="gen-product-text-cover">
         <h1>Total Products</h1>
         <button type="button">Sort By</button>
       </div>
-      <div className="product-cover">
+      <div className="gen-product-cover">
         {products.map((product, index) => (
           <Card key={index} product={product} />
         ))}

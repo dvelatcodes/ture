@@ -1,4 +1,4 @@
-.product-container {
+.gen-product-container {
   max-width: 1474px;
   height: fit-content;
   width: 100vw;
@@ -11,7 +11,7 @@
     // height: auto;
   }
 
-  .product-text-cover {
+  .gen-product-text-cover {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +30,7 @@
     }
   }
 
-  .product-cover{
+  .gen-product-cover{
     display: flex;
     justify-content: center;
     width: 93%;

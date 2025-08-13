@@ -1,20 +1,35 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
+
+import React, { useContext } from "react";
+import Link from "next/link";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
-import './styles.scss'
+import { CartContext } from "../../../../context/CartContext";
+import "./styles.scss";
 
 const ProfileAndCart = () => {
-  return (
-    <div className='ProfileAndCart'>
-        <Link href='/'>
-            <CgProfile className='ProfileAndCart-icon'/>
-        </Link>
-         <Link href='/'>
-            <FaShoppingCart className='ProfileAndCart-icon'/>
-        </Link>
-    </div>
-  )
-}
+const context = useContext(CartContext);
+if (!context) throw new Error("CartContext must be used within CartProvider");
 
-export default ProfileAndCart
+  const { showCart, setShowCart, totalQuantity } = context;
+
+  const handleClick = () => {
+    setShowCart(!showCart);
+  };
+
+  return (
+    <div className="ProfileAndCart">
+      <Link href="/">
+        <CgProfile className="ProfileAndCart-icon" />
+      </Link>
+      <button onClick={handleClick}>
+            <FaShoppingCart className='ProfileAndCart-icon'/>
+            <span>
+                {totalQuantity}
+            </span>
+      </button>
+    </div>
+  );
+};
+
+export default ProfileAndCart;
