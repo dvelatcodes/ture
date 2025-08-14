@@ -10,6 +10,7 @@ import { Footer, Navbar, ProfileAndCart } from "./components/generalComponents";
 import Cart from "./components/Cart/Cart";
 import { AppContext } from "../context/AppContext";
 import { CartProvider } from '../context/CartContext';
+import Providers from "./store/Providers";
 
 export const metadata = {
   title: "B Furniture App",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${kaushan_script.variable} ${montserrat.variable} ${poppins.variable} ${noto_serif.variable}`}
       >
+        <Providers>
         <CartProvider>
           <Navbar />
           <Cart />
@@ -29,6 +31,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </CartProvider>
+        </Providers>
       </body>
     </html>
   );

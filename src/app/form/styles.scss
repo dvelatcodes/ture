@@ -1,0 +1,224 @@
+.pioneerRegContainer{
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    padding-top: 5rem;
+    @media screen and (max-width : 376px) {
+        padding-bottom: 1rem;
+    }
+    @media screen and (max-width : 360px) {
+        padding-bottom: 1rem;
+    }
+}
+
+.pioneerRegForm-ul{
+    width: 30%;
+    height: fit-content;
+    min-height: 50vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @media screen and (max-width : 376px) {
+        align-items: center;
+        width: fit-content;   
+    }
+    @media screen and (max-width : 360px) {
+        align-items: center;
+        width: fit-content;   
+    }
+}
+
+.pioneerRegForm-li{
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    @media screen and (max-width : 376px) {
+        width: fit-content;   
+    }
+    @media screen and (max-width : 360px) {
+        width: fit-content;   
+    }
+        label{
+            width: 30%;
+            font-family: 'Times New Roman', Times, serif;
+            // font-size: 0.9rem;
+            @media screen and (max-width : 376px) {
+                width: 27vw;
+                font-size: 0.9rem;
+            }
+            @media screen and (max-width : 360px) {
+                width: 27vw;
+                font-size: 0.9rem;
+            }
+
+        }
+
+        .green{
+            color: green;
+            position: absolute;
+            right: 0.4rem;
+            font-size: 82%;
+            @media screen and (max-width : 376px) {
+                font-size: 0.6rem;
+            }
+            @media screen and (max-width : 360px) {
+                font-size: 0.6rem;
+            }
+        }
+        .red{
+            color: red;
+            position: absolute;
+            right: 0.4rem;
+            font-size: 82%;
+            @media screen and (max-width : 376px) {
+                font-size: 0.6rem;
+            }
+            @media screen and (max-width : 360px) {
+                font-size: 0.6rem;
+            }
+        }
+}
+
+.pioneerRegForm-li input{
+    width: 71%;
+    height: 2.5rem;
+    border-radius: 7px;
+    border: 2.5px solid rgb(57, 192, 255);
+    padding-left: 5%;
+    font-size: 90%;
+    @media screen and (max-width : 376px) {
+        font-size: 0.7rem;
+        width: 44vw;
+        height: 2.2rem;
+    }
+    @media screen and (max-width : 360px) {
+            font-size: 0.7rem;
+            width: 44vw;
+            height: 2.2rem;
+    }
+}
+
+
+
+.pioneerRegForm-li input:focus{
+    outline: none;
+    border-color: greenyellow;
+}
+
+.pioneerRegForm-li input:focus{
+    outline: none;
+}
+
+.btnToNavigateToLoginPioneer{
+    width: 12vw;
+    height: 8vh;
+    border: 3px solid rgb(169, 255, 39);
+    color: rgb(169, 255, 39);
+}
+
+.btnToNavigateToLoginPioneer:hover{
+    border-color: white;
+    color: white;
+}
+@media screen and (max-width : 376px) {
+    .btnToNavigateToLoginPioneer{
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+}
+@media screen and (max-width : 360px) {
+    .btnToNavigateToLoginPioneer{
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+}
+
+.logBtnCover{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.log1 {
+  color: #473723;
+  width: 230px;
+  height: 65px;
+  border-radius: 40px;
+  border-width: 2px;
+  border-color: #473723;
+  background-color: #fff5e8;
+  font-weight: 400;
+  font-size: 1rem;
+//   margin: 1rem auto 0 auto;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.log2 {
+  color: #473723;
+  width: 230px;
+  height: 65px;
+  border-radius: 40px;
+  border-width: 2px;
+  border-color: #473723;
+  background-color: #fff5e8;
+  font-weight: 400;
+  font-size: 1rem;
+//   margin-top: 4;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+
+.signUp {
+  color: #4ade80;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem 1.75rem;
+  border-width: 2px;
+  border-color: #4ade80;
+  background-color: #fff5e8;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.log1:hover,.log2:hover, .signUp:hover {
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+.signUp:hover {
+  color: #473723;
+  border-color: #473723;
+}
+
+.tt.pioneerRegForm-li{
+    display: flex;
+    justify-content: space-around;
+    width: fit-content;
+    margin: auto;
+    column-gap: 2rem;
+
+    label{
+        width: fit-content;
+    }
+
+    input{
+        width: 300px;
+    }
+}
+
+
+
+
+// input:disabled
+// input:out-of-range
