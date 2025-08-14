@@ -34,7 +34,6 @@ const loginUser = async ({email, password}) =>{
     );
     if (response.data) {
     console.log(response.data)
-    //   localStorage.setItem("user", JSON.stringify(response.data));
     }
     return response.data;
   } catch (error) {
@@ -64,12 +63,22 @@ const checkAuth = async () =>{
         return response.data;
 }
 
+const getUser = async () =>{
+    const response = await API.get("/profile", {},
+        {
+            withCredentials: true,
+        }
+    );
+    return response.data;
+}
+
 
 const useService = {
     createUser,
     loginUser,
     logOutUser,
-    checkAuth
+    checkAuth,
+    getUser
 };
 
 export default useService;

@@ -44,6 +44,22 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const getUser = createAsyncThunk(
+    "/getUser", async (thunkAPI) => {
+        try {
+            return await useService.getUser();
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
 export const logoutUser = createAsyncThunk(
     "/logout", async (thunkAPI) => {
         try {
@@ -97,7 +113,8 @@ const authSlice = createSlice({
             .addCase(createUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.user = action.payload;
+                state.user = action.payload?.user;
+                // state.user = action.payload.success ? action.payload.user : null;
                 Cookies.set("Auth_token", action.payload?.token);
             })
             .addCase(createUser.rejected, (state, action) => {
@@ -111,7 +128,8 @@ const authSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.user = action.payload.success ? action.payload.user : null;
+                // state.user = action.payload.success ? action.payload.user : null;
+                state.user = action.payload?.user;
                 state.isSuccess = true;
                 Cookies.set("Auth_token", action.payload?.token);
             })
@@ -138,7 +156,20 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.user = null;
                 Cookies.remove("auth_token");
-            });
+            }).addCase(getUser.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getUser.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload?.user;
+                state.isSuccess = true;
+            })
+            .addCase(getUser.rejected, (state, action) => {
+                state.isError = true;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.user = null;
+            })
     },
 });
 

@@ -12,6 +12,11 @@
     border: 2px solid black;
     border-radius: 2rem;
 
+    .p-icon{
+        display: flex;
+        flex-direction: column;
+    }
+
     a {
         text-decoration: none;
         color: #473723;

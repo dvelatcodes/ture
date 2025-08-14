@@ -29,6 +29,7 @@ const page = () => {
       toast.error(message);
       router.push("/");
     } else if (isSuccess) {
+      console.log(user, 'hahahahaha')
       router.push("/products");
     }
     dispatch(reset());
