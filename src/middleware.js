@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 
 export function middleware(req) {
   const { pathname } = req.nextUrl;
-  const token = req.cookies.get("auth_token")?.value;
+  const token = req.cookies.get("Auth_token")?.value;
 
-  if (!token && (pathname.startsWith("/products") || pathname.startsWith("/profile"))) {
+  if (!token && (pathname.startsWith("/products") || pathname.startsWith("/profile") || pathname.startsWith("/product"))) {
     return NextResponse.redirect(new URL("/form", req.url));
   }
 
@@ -12,5 +12,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/products/:path*", "/profile/:path*"],
+  matcher: ["/products/:path*", "/profile/:path*", "/product/:path*",],
 };

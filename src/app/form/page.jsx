@@ -27,8 +27,9 @@ const page = () => {
   useEffect(() => {
     if (isError) {
       toast.error(message);
+      router.push("/");
     } else if (isSuccess) {
-      router("/products");
+      router.push("/products");
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, router, dispatch]);

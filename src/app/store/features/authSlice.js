@@ -81,30 +81,30 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         reset: (state) => {
-      {
-        state.isLoading = false;
-        state.isSuccess = false;
-        state.isError = false;
-        state.message = "";
-      }
-    },
+            {
+                state.isLoading = false;
+                state.isSuccess = false;
+                state.isError = false;
+                state.message = "";
+            }
+        },
     },
     extraReducers: (builder) => {
         builder
             .addCase(createUser.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(createUser.fulfilled, (state) => {
+            .addCase(createUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload;
                 Cookies.set("Auth_token", action.payload?.token);
             })
-            .addCase(createUser.rejected, (state) => {
+            .addCase(createUser.rejected, (state, action) => {
                 state.isError = true;
-        state.isLoading = false;
-        state.message = action.payload;
-        state.user = null;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.user = null;
             })
             .addCase(loginUser.pending, (state) => {
                 state.isLoading = true;
@@ -113,12 +113,13 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.user = action.payload.success ? action.payload.user : null;
                 state.isSuccess = true;
+                Cookies.set("Auth_token", action.payload?.token);
             })
-            .addCase(loginUser.rejected, (state) => {
+            .addCase(loginUser.rejected, (state, action) => {
                 state.isError = true;
-        state.isLoading = false;
-        state.message = action.payload;
-        state.user = null;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.user = null;
             })
             .addCase(checkAuth.pending, (state) => {
                 state.isLoading = true;

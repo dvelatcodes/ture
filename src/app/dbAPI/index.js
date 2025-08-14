@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:5555",
 });
 
 API.interceptors.request.use((req) => {
@@ -14,21 +14,32 @@ API.interceptors.request.use((req) => {
 });
 
 const createUser = async (data) => {
-    const response = await API.post("/register", data,
+    try {
+        const response = await API.post("/regUser", data,
         {
             withCredentials: true,
         }
     );
+    console.log(response.data)
     return response.data;
+    } catch (error) {
+        console.log(error)
+    }  
 }
 
-const loginUser = async (data) =>{
-    const response = await API.post("/login", data,
-        {
-            withCredentials: true,
-        }
+const loginUser = async ({email, password}) =>{
+    try {
+    const response = await API.get(
+      `/loginUser?email=${email}&password=${password}`
     );
+    if (response.data) {
+    console.log(response.data)
+    //   localStorage.setItem("user", JSON.stringify(response.data));
+    }
     return response.data;
+  } catch (error) {
+    return error;
+  }
 }
 
 const logOutUser = async () =>{
