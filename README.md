@@ -10,7 +10,8 @@ This is a real estate application on B furniture
 
 ## Deployed on Vercel
 
-- this site is deployed at https://real-estate-global.vercel.app/
+- This site is deployed at https://ture-chi.vercel.app/ for the frontend
+- The backend is deployed at https://furnserve.onrender.com/
 
 
 
