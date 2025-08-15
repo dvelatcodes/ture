@@ -5,6 +5,12 @@
   margin-bottom: 25px;
 }
 
+@media screen and (max-width:375px) {
+.first-img-cover > img {
+  width: 90vw;
+}
+}
+
 .img-displays {
   object-fit: cover;
   height: 8rem;
