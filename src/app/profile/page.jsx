@@ -8,7 +8,12 @@ import { FaUnlockAlt } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";
-import { reset, getUser, logout, changePassword} from "../store/features/authSlice";
+import {
+  reset,
+  getUser,
+  logout,
+  changePassword,
+} from "../store/features/authSlice";
 import { toast } from "react-hot-toast";
 
 // import { changePassword, isError } from "../store/features/authSlice";
@@ -29,20 +34,7 @@ const page = () => {
     newPassword: "",
   });
 
-//   changePassword
-
-  //     useEffect(() => {
-  //     if (isError) {
-  //       toast.error(message);
-  //       router.push("/");
-  //     } else if (isSuccess) {
-  //       // console.log(user, 'hahahahaha')
-  //       router.push("/products");
-  //     }
-  //     dispatch(reset());
-  //   }, [user, isError, isSuccess, message, router, dispatch]);
-
-  // used to change classname and validation statements
+  const [showPass, setShowPass] = useState(true);
   const [Pchecker, setPchecker] = useState({
     pFirst: false,
     pSecond: false,
@@ -146,18 +138,17 @@ const page = () => {
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
 
-  const changePass = ()=>{
+  const changePass = () => {
     if (pFirst && pSecond) {
-          setCursorIsActive(true);
-          dispatch(changePassword({ prevPassword, newPassword}));
-          router.push('/')
-        }
-    else if (isError) {
+      setCursorIsActive(true);
+      dispatch(changePassword({ prevPassword, newPassword }));
+      router.push("/");
+    } else if (isError) {
       toast?.error(message);
     } else if (isSuccess) {
-     dispatch(reset());
+      dispatch(reset());
     }
-  }
+  };
 
   return (
     <div className="profile-cover">
@@ -175,7 +166,7 @@ const page = () => {
           <FaShoppingCart className="s-icon" />{" "}
           <span className={showSide ? "" : "x"}>Previous Orders</span>
         </button>
-        <button>
+        <button onClick={() => setShowPass(!showPass)}>
           <FaUnlockAlt className="s-icon" />
           <span className={showSide ? "" : "x"}>Change Password</span>
         </button>
@@ -184,92 +175,101 @@ const page = () => {
           <span className={showSide ? "" : "x"}>Logout</span>
         </button>
       </div>
-
-      <form
-        action="#"
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <ul
-          className="studentRegForm-ul changePPP"
-          style={{ height: "fit-content", minHeight: "fit-content" }}
+      {showPass ? (
+        <></>
+      ) : (
+        <form
+          action="#"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
         >
-          <li className="tt pioneerRegForm-li" style={{ marginBottom: "12px" }}>
-            <label
-              htmlFor="password"
-              style={{ color: "#473723", fontWeight: "700" }}
+          <ul
+            className="studentRegForm-ul changePPP"
+            style={{ height: "fit-content", minHeight: "fit-content" }}
+          >
+            <li
+              className="tt pioneerRegForm-li"
+              style={{ marginBottom: "12px" }}
             >
-             Old Password
-            </label>
-            <input
-              type="password"
-              name="prevPassword"
-              placeholder="enter your previous password"
-              value={prevPassword}
-              onInput={onChange}
-              onKeyUp={checkOldPassword}
-            />
-            <p
-              className={pFirst ? "green" : "red"}
-              style={{ display: display1 }}
+              <label
+                htmlFor="password"
+                style={{ color: "#473723", fontWeight: "700" }}
+              >
+                Old Password
+              </label>
+              <input
+                type="password"
+                name="prevPassword"
+                placeholder="enter your previous password"
+                value={prevPassword}
+                onInput={onChange}
+                onKeyUp={checkOldPassword}
+              />
+              <p
+                className={pFirst ? "green" : "red"}
+                style={{ display: display1 }}
+              >
+                {pFirst
+                  ? strength === "weak"
+                    ? "weak"
+                    : strength === "strong"
+                      ? "strong"
+                      : "valid"
+                  : strength === "specialCharacter"
+                    ? "special characters not allowed"
+                    : "invalid"}
+              </p>
+            </li>
+            <li
+              className="tt pioneerRegForm-li"
+              style={{ marginBottom: "12px" }}
             >
-              {pFirst
-                ? strength === "weak"
-                  ? "weak"
-                  : strength === "strong"
-                    ? "strong"
-                    : "valid"
-                : strength === "specialCharacter"
-                  ? "special characters not allowed"
-                  : "invalid"}
-            </p>
-          </li>
-          <li className="tt pioneerRegForm-li" style={{ marginBottom: "12px" }}>
-            <label
-              htmlFor="new password"
-              style={{ color: "#473723", fontWeight: "700" }}
-            >
-              New Password
-            </label>
-            <input
-              type="password"
-              name="newPassword"
-              placeholder="enter your new password"
-              value={newPassword}
-              onInput={onChange}
-              onKeyUp={checkNewPassword}
-            />
-            <p
-              className={pSecond ? "green" : "red"}
-              style={{ display: display2 }}
-            >
-              {pSecond
-                ? strength === "weak"
-                  ? "weak"
-                  : strength === "strong"
-                    ? "strong"
-                    : "valid"
-                : strength === "specialCharacter"
-                  ? "special characters not allowed"
-                  : "invalid"}
-            </p>
-          </li>
-          {/*  */}
-          <div className="logBtnCover">
-            <button
-              type="button"
-              className="log1"
-              style={{
-                cursor: cursorIsActive ? "not-allowed" : "pointer",
-              }}
-              onClick={changePass}
-            >
-              Change Password
-            </button>
-          </div>
-        </ul>
-      </form>
+              <label
+                htmlFor="new password"
+                style={{ color: "#473723", fontWeight: "700" }}
+              >
+                New Password
+              </label>
+              <input
+                type="password"
+                name="newPassword"
+                placeholder="enter your new password"
+                value={newPassword}
+                onInput={onChange}
+                onKeyUp={checkNewPassword}
+              />
+              <p
+                className={pSecond ? "green" : "red"}
+                style={{ display: display2 }}
+              >
+                {pSecond
+                  ? strength === "weak"
+                    ? "weak"
+                    : strength === "strong"
+                      ? "strong"
+                      : "valid"
+                  : strength === "specialCharacter"
+                    ? "special characters not allowed"
+                    : "invalid"}
+              </p>
+            </li>
+            {/*  */}
+            <div className="logBtnCover">
+              <button
+                type="button"
+                className="log1"
+                style={{
+                  cursor: cursorIsActive ? "not-allowed" : "pointer",
+                }}
+                onClick={changePass}
+              >
+                Change Password
+              </button>
+            </div>
+          </ul>
+        </form>
+      )}
     </div>
   );
 };

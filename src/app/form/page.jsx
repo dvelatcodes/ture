@@ -167,7 +167,7 @@ const page = () => {
       setDisplay({ ...display, display5: "block" });
       setStrength("strong");
     }
-    if (address.match(/[!-\/]|[:-@]|[\[-`]|[\{-~}]|\s/)) {
+    if (address.match(/[!-\/]|[:-@]|[\[-`]|[\{-~}]/)) {
       setPchecker({ ...Pchecker, pFifth: false });
       setDisplay({ ...display, display5: "block" });
       setStrength("specialCharacter");

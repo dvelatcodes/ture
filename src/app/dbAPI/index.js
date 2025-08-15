@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-    baseURL: "http://localhost:5555",
+  baseURL: "https://furnserve.onrender.com",
 });
 
 API.interceptors.request.use((req) => {
@@ -14,25 +14,25 @@ API.interceptors.request.use((req) => {
 });
 
 const createUser = async (data) => {
-    try {
-        const response = await API.post("/regUser", data,
-        {
-            withCredentials: true,
-        }
+  try {
+    const response = await API.post("/regUser", data,
+      {
+        withCredentials: true,
+      }
     );
     return response.data;
-    } catch (error) {
-        console.log(error)
-    }  
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-const loginUser = async ({email, password}) =>{
-    try {
+const loginUser = async ({ email, password }) => {
+  try {
     const response = await API.get(
       `/loginUser?email=${email}&password=${password}`
     );
     if (response.data) {
-    // console.log(response.data)
+      // console.log(response.data)
     }
     return response.data;
   } catch (error) {
@@ -40,39 +40,39 @@ const loginUser = async ({email, password}) =>{
   }
 }
 
-const logOutUser = async () =>{
-    const response = await API.post("/logout", {},
-        {
-            withCredentials: true,
-        }
-    );
-    return response.data;
+const logOutUser = async () => {
+  const response = await API.post("/logout", {},
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
 }
 
-const logOut = async () =>{
-    Cookies.remove('Auth_token');
+const logOut = async () => {
+  Cookies.remove('Auth_token');
 }
 
-const checkAuth = async () =>{
-    const response = await API.get("/check-auth",
-            {
-                withCredentials: true,
-                headers: {
-                    "Cache-Control":
-                        "no-store, no-cache, must-revalidate, proxy-revalidate",
-                },
-            }
-        );
-        return response.data;
+const checkAuth = async () => {
+  const response = await API.get("/check-auth",
+    {
+      withCredentials: true,
+      headers: {
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate",
+      },
+    }
+  );
+  return response.data;
 }
 
-const getUser = async () =>{
-    const response = await API.get("/profile", {},
-        {
-            withCredentials: true,
-        }
-    );
-    return response.data;
+const getUser = async () => {
+  const response = await API.get("/profile", {},
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
 }
 
 const changePassword = async ({ prevPassword, newPassword }) => {
@@ -94,15 +94,32 @@ const changePassword = async ({ prevPassword, newPassword }) => {
 //       `/loginUser?email=${email}&password=${password}`
 //     );
 
+const createOrder = (data) => {
+  try {
+    // console.log("data here", data)
+    const response = API.post("/createOrder", data,
+      {
+        withCredentials: true,
+      }
+    );
+    // console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    return response.data
+  }
+
+}
 
 const useService = {
-    createUser,
-    loginUser,
-    logOutUser,
-    checkAuth,
-    getUser,
-    logOut,
-    changePassword
+  createUser,
+  loginUser,
+  logOutUser,
+  checkAuth,
+  getUser,
+  logOut,
+  changePassword,
+  createOrder
 };
 
 export default useService;

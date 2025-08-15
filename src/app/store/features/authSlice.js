@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
     user: null,
+    orders: null,
     // isAuthenticated: false,
     isLoading: false,
     isError: false,
@@ -11,6 +12,22 @@ const initialState = {
     isLoading: false,
     message: "",
 };
+
+export const createOrder = createAsyncThunk(
+    "/createOrder", async (data, thunkAPI) => {
+        try {
+            return await useService.createOrder(data);
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
 
 export const createUser = createAsyncThunk(
     "/register", async (data, thunkAPI) => {
@@ -156,6 +173,21 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.message = action.payload;
                 state.user = null;
+            })
+            .addCase(createOrder.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(createOrder.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.orders = action.payload?.user;
+                // state.user = action.payload.success ? action.payload.user : null;
+            })
+            .addCase(createOrder.rejected, (state, action) => {
+                state.isError = true;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.orders = null;
             })
             .addCase(loginUser.pending, (state) => {
                 state.isLoading = true;
