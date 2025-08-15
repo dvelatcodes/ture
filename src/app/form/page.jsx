@@ -197,6 +197,7 @@ const page = () => {
           address,
         };
         dispatch(createUser(userData));
+        router.push('/products')
       } catch (error) {
         alert("There's an invalid input field, unable to submit");
       }
@@ -210,6 +211,7 @@ const page = () => {
       setCursorIsActive(true);
       // console.log(email, password);
       dispatch(loginUser({ email, password }));
+      router.push('/profile')
     }
   };
 
