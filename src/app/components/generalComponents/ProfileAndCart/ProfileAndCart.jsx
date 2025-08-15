@@ -35,7 +35,7 @@ const ProfileAndCart = () => {
     if (isError) {
       toast.error(message);
     } else if (isSuccess) {
-      setUserName(user.firstName);
+      setUserName(user?.firstName);
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);

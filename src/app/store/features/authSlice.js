@@ -44,6 +44,22 @@ export const loginUser = createAsyncThunk(
     }
 );
 
+export const changePassword = createAsyncThunk(
+    "/changePassword", async (prevPassword, newPassword, thunkAPI) => {
+        try {
+            return await useService.changePassword(prevPassword, newPassword);
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
 export const getUser = createAsyncThunk(
     "/getUser", async (thunkAPI) => {
         try {
@@ -79,7 +95,7 @@ export const logoutUser = createAsyncThunk(
 export const logout = createAsyncThunk(
     "/logout", async (thunkAPI) => {
         try {
-            return await useService.logOut();
+            return await useService.logOut(); changePassword
         } catch (error) {
             const message =
                 (error.response &&
@@ -131,7 +147,9 @@ const authSlice = createSlice({
                 state.isSuccess = true;
                 state.user = action.payload?.user;
                 // state.user = action.payload.success ? action.payload.user : null;
-                Cookies.set("Auth_token", action.payload?.token);
+                if (action.payload?.token) {
+                    Cookies.set("Auth_token", action.payload.token);
+                }
             })
             .addCase(createUser.rejected, (state, action) => {
                 state.isError = true;
@@ -147,12 +165,15 @@ const authSlice = createSlice({
                 // state.user = action.payload.success ? action.payload.user : null;
                 state.user = action.payload?.user;
                 state.isSuccess = true;
-                Cookies.set("Auth_token", action.payload?.token);
+                if (action.payload?.token) {
+                    Cookies.set("Auth_token", action.payload.token);
+                }
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.isError = true;
                 state.isLoading = false;
                 state.message = action.payload;
+                Cookies.remove("Auth_token");
                 state.user = null;
             })
             .addCase(checkAuth.pending, (state) => {
@@ -171,7 +192,7 @@ const authSlice = createSlice({
             .addCase(logoutUser.fulfilled, (state) => {
                 state.isLoading = false;
                 state.user = null;
-                Cookies.remove("auth_token");
+                Cookies.remove("Auth_token");
             }).addCase(getUser.pending, (state) => {
                 state.isLoading = true;
             })
@@ -179,8 +200,25 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.user = action.payload?.user;
                 state.isSuccess = true;
+                // Cookies.set("Auth_token", action.payload?.token);
             })
             .addCase(getUser.rejected, (state, action) => {
+                state.isError = true;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.user = null;
+                // Cookies.remove("auth_token");
+            })
+            .addCase(changePassword.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(changePassword.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.user = action.payload?.user;
+                state.isSuccess = true;
+                Cookies.remove("Auth_token");
+            })
+            .addCase(changePassword.rejected, (state, action) => {
                 state.isError = true;
                 state.isLoading = false;
                 state.message = action.payload;

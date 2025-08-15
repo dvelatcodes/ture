@@ -20,7 +20,6 @@ const createUser = async (data) => {
             withCredentials: true,
         }
     );
-    // console.log(response.data)
     return response.data;
     } catch (error) {
         console.log(error)
@@ -76,6 +75,25 @@ const getUser = async () =>{
     return response.data;
 }
 
+const changePassword = async ({ prevPassword, newPassword }) => {
+  try {
+    const response = await API.patch("/changePass", {
+      oldPass: prevPassword,
+      newPass: newPassword
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      return error.response.data;
+    }
+    return { message: error.message || "Unknown error" };
+  }
+};
+
+// const response = await API.get(
+//       `/loginUser?email=${email}&password=${password}`
+//     );
+
 
 const useService = {
     createUser,
@@ -83,7 +101,8 @@ const useService = {
     logOutUser,
     checkAuth,
     getUser,
-    logOut
+    logOut,
+    changePassword
 };
 
 export default useService;

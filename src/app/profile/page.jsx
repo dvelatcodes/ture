@@ -8,18 +8,15 @@ import { FaUnlockAlt } from "react-icons/fa";
 import { SlLogout } from "react-icons/sl";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  reset,
-  getUser,
-  logout,
-  isError,
-  isSuccess,
-  message,
-} from "../store/features/authSlice";
+import { reset, getUser, logout, changePassword} from "../store/features/authSlice";
+import { toast } from "react-hot-toast";
+
+// import { changePassword, isError } from "../store/features/authSlice";
 import { useRouter } from "next/navigation";
 
 import "../form/styles.scss";
 import "./styles.scss";
+import { PT_Serif } from "next/font/google";
 
 const page = () => {
   const [showSide, setShowSide] = useState(false);
@@ -31,6 +28,8 @@ const page = () => {
     prevPassword: "",
     newPassword: "",
   });
+
+//   changePassword
 
   //     useEffect(() => {
   //     if (isError) {
@@ -140,12 +139,25 @@ const page = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast?.error(message);
     } else if (isSuccess) {
-      setUserName(user.firstName);
+      setUserName(user?.firstName);
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
+
+  const changePass = ()=>{
+    if (pFirst && pSecond) {
+          setCursorIsActive(true);
+          dispatch(changePassword({ prevPassword, newPassword}));
+          router.push('/')
+        }
+    else if (isError) {
+      toast?.error(message);
+    } else if (isSuccess) {
+     dispatch(reset());
+    }
+  }
 
   return (
     <div className="profile-cover">
@@ -251,9 +263,7 @@ const page = () => {
               style={{
                 cursor: cursorIsActive ? "not-allowed" : "pointer",
               }}
-              onClick={() => {
-                setLoginIsActive(false);
-              }}
+              onClick={changePass}
             >
               Change Password
             </button>

@@ -27,7 +27,7 @@ export const POST = async (request) => {
    
        }
   } catch (error) {
-      console.log("Error in creating a new product", error);
+      // console.log("Error in creating a new product", error);
       throw error;
   }
  
