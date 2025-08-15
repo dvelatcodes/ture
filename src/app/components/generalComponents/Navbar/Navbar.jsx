@@ -30,7 +30,7 @@ const Navbar = () => {
                 Home
             </Link>
             <Link href='/about' className={`${activeLink === '/about'? 'active-nav' : "" }`} onClick={(e)=>{setActiveLink(e.target.getAttribute('href'))
-            console.log(activeLink)
+            // console.log(activeLink)
             }}>
                 About Us
             </Link>

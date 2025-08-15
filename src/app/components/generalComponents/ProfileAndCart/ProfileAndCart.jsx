@@ -42,7 +42,7 @@ const ProfileAndCart = () => {
 
   return (
     <div className="ProfileAndCart">
-      <Link href="/" className="p-icon">
+      <Link href="/profile" className="p-icon">
         <CgProfile className="ProfileAndCart-icon" />
         <span>{userName === "" ? "" : userName}</span>
       </Link>

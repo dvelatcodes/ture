@@ -20,7 +20,7 @@ const createUser = async (data) => {
             withCredentials: true,
         }
     );
-    console.log(response.data)
+    // console.log(response.data)
     return response.data;
     } catch (error) {
         console.log(error)
@@ -33,7 +33,7 @@ const loginUser = async ({email, password}) =>{
       `/loginUser?email=${email}&password=${password}`
     );
     if (response.data) {
-    console.log(response.data)
+    // console.log(response.data)
     }
     return response.data;
   } catch (error) {
@@ -48,6 +48,10 @@ const logOutUser = async () =>{
         }
     );
     return response.data;
+}
+
+const logOut = async () =>{
+    Cookies.remove('Auth_token');
 }
 
 const checkAuth = async () =>{
@@ -78,7 +82,8 @@ const useService = {
     loginUser,
     logOutUser,
     checkAuth,
-    getUser
+    getUser,
+    logOut
 };
 
 export default useService;

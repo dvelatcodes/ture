@@ -76,6 +76,22 @@ export const logoutUser = createAsyncThunk(
     }
 );
 
+export const logout = createAsyncThunk(
+    "/logout", async (thunkAPI) => {
+        try {
+            return await useService.logOut();
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
 export const checkAuth = createAsyncThunk(
     "/checkauth", async (thunkAPI) => {
         try {
