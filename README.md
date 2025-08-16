@@ -1,6 +1,6 @@
 # Real Estate Global
 
-This is a real estate application on B furniture
+This is a full stack furniture website that enables various users to purchase various furniture items from  it's catalogue. Users are able to create and manage their shopping account.
 
 ## Screen Shots
 
@@ -8,31 +8,39 @@ This is a real estate application on B furniture
 ![Alt text](<Screenshot 2024-01-30 at 9.34.05 PM.png>)
 ![Alt text](<Screenshot 2024-01-30 at 9.43.12 PM.png>)
 
+
+
+
+#Feautures of Application
+
+- Online payment gateway integration.
+- Images of catalogues were managed by sanity.
+- Json Web Token Authentication.
+
 ## Deployed on Vercel
 
 - This site is deployed at https://ture-chi.vercel.app/ for the frontend
 - The backend is deployed at https://furnserve.onrender.com/
 
+## Project Source Code Deployed on Github
 
+- https://github.com/dvelatcodes/furnserve (backend)
 
-## Functionalities
+- https://github.com/dvelatcodes/ture (frontend)
 
-- Sanity was used to manage the products
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
-git clone this repo, then run the below command
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Enter into the frontend project root folder
+
+- npm i
+
+- insert these keys in the .env.local file in the nextjs root folder
+
+
+- Please note, after logging in, the app will not redirect you, so you need to refresh the page to view your profile and products
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

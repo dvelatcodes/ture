@@ -29,8 +29,10 @@ const page = () => {
       toast.error(message);
       router.push("/");
     } else if (isSuccess) {
-      // console.log(user, 'hahahahaha')
+      console.log('hahahahaha')
+      router.refresh()
       router.push("/products");
+      console.log('haha')
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, router, dispatch]);
@@ -197,7 +199,7 @@ const page = () => {
           address,
         };
         dispatch(createUser(userData));
-        router.push('/products')
+        // router.push('/products')
       } catch (error) {
         alert("There's an invalid input field, unable to submit");
       }
@@ -211,7 +213,7 @@ const page = () => {
       setCursorIsActive(true);
       // console.log(email, password);
       dispatch(loginUser({ email, password }));
-      router.push('/profile')
+      // router.push('/profile')
     }
   };
 
