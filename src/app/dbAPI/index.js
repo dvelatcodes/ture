@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-  // baseURL: "https://furnserve.onrender.com",
-  baseURL: "http://localhost:5555"
+  baseURL: "https://furnserve.onrender.com",
+  // baseURL: "http://localhost:5555"
 });
 
 API.interceptors.request.use((req) => {
