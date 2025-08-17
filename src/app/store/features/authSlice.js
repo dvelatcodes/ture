@@ -196,9 +196,11 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 // state.user = action.payload.success ? action.payload.user : null;
                 state.user = action.payload?.user;
-                state.isSuccess = true;
                 if (action.payload?.token) {
                     Cookies.set("Auth_token", action.payload.token);
+                    if (Cookies.get("Auth_token")){
+                        state.isSuccess = true;
+                    }
                 }
             })
             .addCase(loginUser.rejected, (state, action) => {

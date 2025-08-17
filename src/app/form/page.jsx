@@ -214,11 +214,9 @@ const page = () => {
       setCursorIsActive(true);
       // console.log(email, password);
       dispatch(loginUser({ email, password }));
-      if (isSuccess) {
-        window.location.reload();
-        router.push("/profile");
-        dispatch(reset());
-      }
+      // if (isSuccess) {
+        // router.push("/profile");
+      // }
     }
   };
 
