@@ -123,6 +123,7 @@ const page = () => {
   const log = () => {
     dispatch(logout());
     router.push("/");
+    router.refresh();
   };
 
   useEffect(() => {
@@ -143,6 +144,7 @@ const page = () => {
       setCursorIsActive(true);
       dispatch(changePassword({ prevPassword, newPassword }));
       router.push("/");
+      router.refresh();
     } else if (isError) {
       toast?.error(message);
     } else if (isSuccess) {

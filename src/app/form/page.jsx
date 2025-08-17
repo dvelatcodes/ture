@@ -30,7 +30,7 @@ const page = () => {
       router.push("/");
     } else if (isSuccess) {
       console.log('hahahahaha')
-      router.refresh()
+      window.location.reload()
       router.push("/products");
       console.log('haha')
     }
