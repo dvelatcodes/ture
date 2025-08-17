@@ -145,8 +145,7 @@ const page = () => {
       setCursorIsActive(true);
      const swap = await dispatch(changePassword({ prevPassword, newPassword }));
      if (changePassword.fulfilled.match(swap)){
-      router.push("/");
-      window.location.reload()
+      window.location.href = "/";
      }
     }
   };
