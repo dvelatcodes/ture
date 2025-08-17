@@ -244,9 +244,9 @@ const authSlice = createSlice({
             })
             .addCase(changePassword.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.user = action.payload?.user;
-                state.isSuccess = true;
+                state.user = null;
                 Cookies.remove("Auth_token");
+                state.isSuccess = true;
             })
             .addCase(changePassword.rejected, (state, action) => {
                 state.isError = true;

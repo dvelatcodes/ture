@@ -27,12 +27,13 @@ const page = () => {
   useEffect(() => {
     if (isError) {
       toast.error(message);
-      router.push("/");
+      // router.push("/");
     } else if (isSuccess) {
-      console.log('hahahahaha')
+      // console.log("hahahahaha");
       // window.location.reload()
-      router.push("/products");
-      console.log('haha')
+      router.push("/profile");
+      dispatch(reset());
+      // console.log("haha");
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, router, dispatch]);
@@ -58,9 +59,8 @@ const page = () => {
 
   // objects destructuring
   const { firstName, lastName, email, password, address } = pioneer;
-  const { pFirst, pSecond, pThird, pFourth, pFifth} = Pchecker;
-  const { display1, display2, display3, display4, display5 } =
-    display;
+  const { pFirst, pSecond, pThird, pFourth, pFifth } = Pchecker;
+  const { display1, display2, display3, display4, display5 } = display;
 
   // function to change the empty inputs
   const onChange = (e) => {
@@ -199,8 +199,8 @@ const page = () => {
           address,
         };
         dispatch(createUser(userData));
-        router.push('/')
-        window.location.reload()
+        // router.push('/')
+        window.location.reload();
       } catch (error) {
         alert("There's an invalid input field, unable to submit");
       }
@@ -214,8 +214,11 @@ const page = () => {
       setCursorIsActive(true);
       // console.log(email, password);
       dispatch(loginUser({ email, password }));
-      window.location.reload()
-      router.push('/profile')
+      if (isSuccess) {
+        window.location.reload();
+        router.push("/profile");
+        dispatch(reset());
+      }
     }
   };
 
@@ -236,8 +239,14 @@ const page = () => {
                 className="studentRegForm-ul"
                 style={{ height: "fit-content", minHeight: "fit-content" }}
               >
-                <li className="tt pioneerRegForm-li" style={{marginBottom: '12px'}}>
-                  <label htmlFor="email" style={{color: '#473723', fontWeight:'700'}}>
+                <li
+                  className="tt pioneerRegForm-li"
+                  style={{ marginBottom: "12px" }}
+                >
+                  <label
+                    htmlFor="email"
+                    style={{ color: "#473723", fontWeight: "700" }}
+                  >
                     Gmail
                   </label>
                   <input
@@ -255,8 +264,14 @@ const page = () => {
                     {pThird ? "valid" : "invalid"}
                   </p>
                 </li>
-                <li className="tt pioneerRegForm-li" style={{marginBottom: '12px'}}>
-                  <label htmlFor="password" style={{color: '#473723', fontWeight:'700'}}>
+                <li
+                  className="tt pioneerRegForm-li"
+                  style={{ marginBottom: "12px" }}
+                >
+                  <label
+                    htmlFor="password"
+                    style={{ color: "#473723", fontWeight: "700" }}
+                  >
                     Password
                   </label>
                   <input
@@ -284,31 +299,31 @@ const page = () => {
                 </li>
                 {/*  */}
                 <div className="logBtnCover">
-                    <button
-                      type="button"
-                      className="log1"
-                      style={{
-                        cursor: cursorIsActive ? "not-allowed" : "pointer",
-                      }}
-                      onClick={() => {
-                        loginPioneerNow();
-                      }}
-                    >
-                      Login
-                    </button>
-                    {/*  */}
-                    <button
-                      type="button"
-                      className="log1"
-                      style={{
-                        cursor: cursorIsActive ? "not-allowed" : "pointer",
-                      }}
-                      onClick={() => {
-                        setLoginIsActive(false);
-                      }}
-                    >
-                      No Account? <br /> Sign-Up
-                    </button>
+                  <button
+                    type="button"
+                    className="log1"
+                    style={{
+                      cursor: cursorIsActive ? "not-allowed" : "pointer",
+                    }}
+                    onClick={() => {
+                      loginPioneerNow();
+                    }}
+                  >
+                    Login
+                  </button>
+                  {/*  */}
+                  <button
+                    type="button"
+                    className="log1"
+                    style={{
+                      cursor: cursorIsActive ? "not-allowed" : "pointer",
+                    }}
+                    onClick={() => {
+                      setLoginIsActive(false);
+                    }}
+                  >
+                    No Account? <br /> Sign-Up
+                  </button>
                 </div>
               </ul>
             </>

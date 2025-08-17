@@ -122,7 +122,7 @@ const page = () => {
 
   const log = () => {
     dispatch(logout());
-    router.push("/");
+    // router.push("/");
     window.location.reload()
   };
 
@@ -133,8 +133,12 @@ const page = () => {
   useEffect(() => {
     if (isError) {
       toast?.error(message);
+      dispatch(reset());
+      // console.log("bad")
     } else if (isSuccess) {
       setUserName(user?.firstName);
+      dispatch(reset());
+      // console.log("changed")
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
@@ -144,11 +148,11 @@ const page = () => {
       setCursorIsActive(true);
       dispatch(changePassword({ prevPassword, newPassword }));
       router.push("/");
-      window.location.reload()
-    } else if (isError) {
+    }
+    if (isError) {
       toast?.error(message);
-    } else if (isSuccess) {
-      window.location.reload()
+    } 
+    if (isSuccess) {
       dispatch(reset());
     }
   };
