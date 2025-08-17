@@ -123,7 +123,7 @@ const page = () => {
   const log = () => {
     dispatch(logout());
     router.push("/");
-    router.refresh();
+    // router.refresh();
   };
 
   useEffect(() => {
@@ -135,6 +135,7 @@ const page = () => {
       toast?.error(message);
     } else if (isSuccess) {
       setUserName(user?.firstName);
+      window.location.reload()
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
