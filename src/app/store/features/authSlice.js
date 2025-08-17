@@ -200,7 +200,7 @@ const authSlice = createSlice({
                     Cookies.set("Auth_token", action.payload.token);
                     if (Cookies.get("Auth_token")){
                         state.isSuccess = true;
-                        window.location.reload()
+                        // window.location.reload()
                     }
                 }
             })

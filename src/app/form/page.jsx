@@ -31,8 +31,8 @@ const page = () => {
     } else if (isSuccess) {
       // console.log("hahahahaha");
       // window.location.reload()
-      router.push("/profile");
-      dispatch(reset());
+      // router.push("/profile");
+      // dispatch(reset());
       // console.log("haha");
     }
     dispatch(reset());
@@ -198,9 +198,12 @@ const page = () => {
           password,
           address,
         };
-        dispatch(createUser(userData));
+       const red = await dispatch(createUser(userData));
         // router.push('/')
-        window.location.reload();
+        // window.location.reload();
+        if (createUser.fulfilled.match(red)){
+          router.push("/profile")
+        }
       } catch (error) {
         alert("There's an invalid input field, unable to submit");
       }
@@ -209,14 +212,14 @@ const page = () => {
 
   const [loginIsActive, setLoginIsActive] = useState(false);
 
-  const loginPioneerNow = () => {
+  const loginPioneerNow = async () => {
     if (pThird && pFourth) {
       setCursorIsActive(true);
       // console.log(email, password);
-      dispatch(loginUser({ email, password }));
-      // if (isSuccess) {
-        // router.push("/profile");
-      // }
+     const tt = await dispatch(loginUser({ email, password }));
+      if (loginUser.fulfilled.match(tt)) {
+        router.push("/");
+      }
     }
   };
 
