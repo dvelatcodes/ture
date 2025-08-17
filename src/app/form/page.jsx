@@ -199,8 +199,6 @@ const page = () => {
           address,
         };
        const red = await dispatch(createUser(userData));
-        // router.push('/')
-        // window.location.reload();
         if (createUser.fulfilled.match(red)){
           window.location.reload()
           router.push("/profile")
@@ -219,8 +217,9 @@ const page = () => {
       // console.log(email, password);
      const tt = await dispatch(loginUser({ email, password }));
       if (loginUser.fulfilled.match(tt)) {
-        window.location.reload()
-        router.push("/profile");
+        // window.location.reload()
+        // router.push("/profile");
+        window.location.href = "/profile";
       }
     }
   };

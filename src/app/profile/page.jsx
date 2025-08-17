@@ -122,7 +122,6 @@ const page = () => {
 
   const log = () => {
     dispatch(logout());
-    // router.push("/");
     window.location.reload()
   };
 
