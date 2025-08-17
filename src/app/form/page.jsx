@@ -202,6 +202,7 @@ const page = () => {
         // router.push('/')
         // window.location.reload();
         if (createUser.fulfilled.match(red)){
+          window.location.reload()
           router.push("/profile")
         }
       } catch (error) {
@@ -218,7 +219,8 @@ const page = () => {
       // console.log(email, password);
      const tt = await dispatch(loginUser({ email, password }));
       if (loginUser.fulfilled.match(tt)) {
-        router.push("/");
+        window.location.reload()
+        router.push("/profile");
       }
     }
   };

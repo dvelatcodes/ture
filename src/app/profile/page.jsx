@@ -134,26 +134,21 @@ const page = () => {
     if (isError) {
       toast?.error(message);
       dispatch(reset());
-      // console.log("bad")
     } else if (isSuccess) {
       setUserName(user?.firstName);
       dispatch(reset());
-      // console.log("changed")
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
 
-  const changePass = () => {
+  const changePass = async () => {
     if (pFirst && pSecond) {
       setCursorIsActive(true);
-      dispatch(changePassword({ prevPassword, newPassword }));
+     const swap = await dispatch(changePassword({ prevPassword, newPassword }));
+     if (changePassword.fulfilled.match(swap)){
       router.push("/");
-    }
-    if (isError) {
-      toast?.error(message);
-    } 
-    if (isSuccess) {
-      dispatch(reset());
+      window.location.reload()
+     }
     }
   };
 
