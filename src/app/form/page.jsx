@@ -30,7 +30,7 @@ const page = () => {
       router.push("/");
     } else if (isSuccess) {
       console.log('hahahahaha')
-      window.location.reload()
+      // window.location.reload()
       router.push("/products");
       console.log('haha')
     }
@@ -199,7 +199,8 @@ const page = () => {
           address,
         };
         dispatch(createUser(userData));
-        // router.push('/products')
+        router.push('/')
+        window.location.reload()
       } catch (error) {
         alert("There's an invalid input field, unable to submit");
       }
@@ -213,7 +214,8 @@ const page = () => {
       setCursorIsActive(true);
       // console.log(email, password);
       dispatch(loginUser({ email, password }));
-      // router.push('/profile')
+      window.location.reload()
+      router.push('/profile')
     }
   };
 

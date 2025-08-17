@@ -123,6 +123,7 @@ const page = () => {
   const log = () => {
     dispatch(logout());
     router.push("/");
+    window.location.reload()
     // router.refresh();
   };
 
@@ -135,7 +136,6 @@ const page = () => {
       toast?.error(message);
     } else if (isSuccess) {
       setUserName(user?.firstName);
-      window.location.reload()
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
@@ -145,10 +145,10 @@ const page = () => {
       setCursorIsActive(true);
       dispatch(changePassword({ prevPassword, newPassword }));
       router.push("/");
-      router.refresh();
     } else if (isError) {
       toast?.error(message);
     } else if (isSuccess) {
+      window.location.reload()
       dispatch(reset());
     }
   };
