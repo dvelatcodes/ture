@@ -13,6 +13,7 @@ import {
   getUser,
   logout,
   changePassword,
+  getOrder,
 } from "../store/features/authSlice";
 import { toast } from "react-hot-toast";
 
@@ -28,6 +29,8 @@ const page = () => {
   const [userName, setUserName] = useState("");
   const [swap, setSwap] = useState("");
   const router = useRouter();
+  const [realOrders, setRealOrder] = useState("");
+  const [time, setTime] = useState("");
 
   const [passCover, setPassCover] = useState({
     prevPassword: "",
@@ -116,17 +119,18 @@ const page = () => {
   };
 
   const dispatch = useDispatch();
-  const { isSuccess, isError, message, user } = useSelector(
+  const { isSuccess, isError, message, user, orders } = useSelector(
     (state) => state.auth
   );
 
   const log = () => {
     dispatch(logout());
-    window.location.reload()
+    window.location.reload();
   };
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(getOrder());
   }, []);
 
   useEffect(() => {
@@ -135,6 +139,9 @@ const page = () => {
       dispatch(reset());
     } else if (isSuccess) {
       setUserName(user?.firstName);
+      // console.log(orders)
+      setRealOrder(orders?.items);
+      setTime(orders?.time);
       dispatch(reset());
     }
     dispatch(reset());
@@ -143,12 +150,15 @@ const page = () => {
   const changePass = async () => {
     if (pFirst && pSecond) {
       setCursorIsActive(true);
-     const swap = await dispatch(changePassword({ prevPassword, newPassword }));
-     if (changePassword.fulfilled.match(swap)){
-      window.location.href = "/";
-     }
+      const swap = await dispatch(
+        changePassword({ prevPassword, newPassword })
+      );
+      if (changePassword.fulfilled.match(swap)) {
+        window.location.href = "/";
+      }
     }
   };
+
 
   return (
     <div className="profile-cover">
@@ -162,7 +172,7 @@ const page = () => {
             {userName === "" ? "" : userName}
           </span>
         </button>
-        <button>
+        <button onClick={()=>setShowPass(!showPass)}>
           <FaShoppingCart className="s-icon" />{" "}
           <span className={showSide ? "" : "x"}>Previous Orders</span>
         </button>
@@ -176,7 +186,23 @@ const page = () => {
         </button>
       </div>
       {showPass ? (
-        <></>
+        <div className="orderH">
+          {realOrders === "" ? (
+            <span>No Order made</span>
+          ) : (
+            <div className="orderH-cover">
+              {realOrders?.map((orders, index) => (
+                <div key={index}>
+                  <h1>Name: {orders.name}</h1>
+                  <h2>Price: {orders.price}</h2>
+                  <h3>Quantity: {orders.quantity}</h3>
+                  <h4>Total Price: {orders.price * orders.quantity}</h4>
+                  <h5>Time: {time}</h5>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       ) : (
         <form
           action="#"

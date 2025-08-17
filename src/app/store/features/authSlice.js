@@ -5,7 +5,6 @@ import Cookies from "js-cookie";
 const initialState = {
     user: null,
     orders: null,
-    // isAuthenticated: false,
     isLoading: false,
     isError: false,
     isSuccess: false,
@@ -93,6 +92,22 @@ export const getUser = createAsyncThunk(
     }
 );
 
+export const getOrder = createAsyncThunk(
+    "/getOrder", async (thunkAPI) => {
+        try {
+            return await useService.getOrder();
+        } catch (error) {
+            const message =
+                (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
 export const logoutUser = createAsyncThunk(
     "/logout", async (thunkAPI) => {
         try {
@@ -163,7 +178,6 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.user = action.payload?.user;
-                // state.user = action.payload.success ? action.payload.user : null;
                 if (action.payload?.token) {
                     Cookies.set("Auth_token", action.payload.token);
                 }
@@ -181,7 +195,6 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.orders = action.payload?.user;
-                // state.user = action.payload.success ? action.payload.user : null;
             })
             .addCase(createOrder.rejected, (state, action) => {
                 state.isError = true;
@@ -194,13 +207,11 @@ const authSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoading = false;
-                // state.user = action.payload.success ? action.payload.user : null;
                 state.user = action.payload?.user;
                 if (action.payload?.token) {
                     Cookies.set("Auth_token", action.payload.token);
                     if (Cookies.get("Auth_token")){
                         state.isSuccess = true;
-                        // window.location.reload()
                     }
                 }
             })
@@ -241,6 +252,19 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.message = action.payload;
                 state.user = null;
+            }).addCase(getOrder.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getOrder.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.orders = action.payload?.user;
+                state.isSuccess = true;
+            })
+            .addCase(getOrder.rejected, (state, action) => {
+                state.isError = true;
+                state.isLoading = false;
+                state.message = action.payload;
+                state.orders = null;
             })
             .addCase(changePassword.pending, (state) => {
                 state.isLoading = true;

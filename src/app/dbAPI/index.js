@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-  baseURL: "https://furnserve.onrender.com",
-  // baseURL: "http://localhost:5555"
+  // baseURL: "https://furnserve.onrender.com",
+  baseURL: "http://localhost:5555"
 });
 
 API.interceptors.request.use((req) => {
@@ -76,6 +76,15 @@ const getUser = async () => {
   return response.data;
 }
 
+const getOrder = async () => {
+  const response = await API.get("/getOrder", {},
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
+}
+
 const changePassword = async ({ prevPassword, newPassword }) => {
   try {
     const response = await API.patch("/changePass", {
@@ -120,7 +129,8 @@ const useService = {
   getUser,
   logOut,
   changePassword,
-  createOrder
+  createOrder,
+  getOrder
 };
 
 export default useService;

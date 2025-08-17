@@ -41,8 +41,8 @@ const Cart = () => {
       );
 
       // console.log(filteredProducts);
-      // dispatch(createOrder(filteredProducts))
-      // dispatch(reset()) 
+      dispatch(createOrder(filteredProducts))
+      dispatch(reset()) 
 
       const response = await fetch("/api/checkout_sessions", {
         method: "POST",
