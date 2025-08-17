@@ -112,7 +112,7 @@ export const logoutUser = createAsyncThunk(
 export const logout = createAsyncThunk(
     "/logout", async (thunkAPI) => {
         try {
-            return await useService.logOut(); changePassword
+            return await useService.logOut();
         } catch (error) {
             const message =
                 (error.response &&
@@ -232,14 +232,12 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.user = action.payload?.user;
                 state.isSuccess = true;
-                // Cookies.set("Auth_token", action.payload?.token);
             })
             .addCase(getUser.rejected, (state, action) => {
                 state.isError = true;
                 state.isLoading = false;
                 state.message = action.payload;
                 state.user = null;
-                // Cookies.remove("auth_token");
             })
             .addCase(changePassword.pending, (state) => {
                 state.isLoading = true;

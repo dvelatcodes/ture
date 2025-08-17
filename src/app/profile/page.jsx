@@ -124,7 +124,6 @@ const page = () => {
     dispatch(logout());
     router.push("/");
     window.location.reload()
-    // router.refresh();
   };
 
   useEffect(() => {
@@ -145,6 +144,7 @@ const page = () => {
       setCursorIsActive(true);
       dispatch(changePassword({ prevPassword, newPassword }));
       router.push("/");
+      window.location.reload()
     } else if (isError) {
       toast?.error(message);
     } else if (isSuccess) {
